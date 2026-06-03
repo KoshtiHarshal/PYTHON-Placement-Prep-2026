@@ -1,3 +1,6 @@
+# Linked List implementation in Python
+# A simple implementation of a singly linked list in Python
+
 class Node: # A class representing a node in a linked list
     def __init__(self, data): # Constructor to initialize the node with data and set the next pointer to None
         self.data = data # Store the data in the node
@@ -10,9 +13,12 @@ a.next = b # Link node a to node b
 b.next = c
 head = a # The head of the linked list is now node a, which points to node b, which points to node c
 
+
+# Accessing the data of the nodes in the linked list
 print(head.data)  # Output: 1
 print(head.next.data)  # Output: 2
 print(head.next.next.data)  # Output: 3
+
 
 # Traversing the linked list
 def traverse(head): # Function to traverse the linked list starting from the head
@@ -24,6 +30,7 @@ def traverse(head): # Function to traverse the linked list starting from the hea
 traverse(head) # Call the traverse function to print the linked list
 print() # Print a newline after traversing the linked list
 
+
 # inserting a new node at the beginning of the linked list
 new_node1 = Node(0) # Create a new node with data 0
 new_node1.next = head # Point the new node's next to the current head of the linked list
@@ -31,12 +38,49 @@ head = new_node1 # Update the head of the linked list to the new node
 traverse(head) # Call the traverse function to print the linked list after inserting the new node at the beginning
 print() # Print a newline after traversing the linked list
 
+
 # inserting a new node at the end of the linked list
-new_node2 = Node(4) # Create a new node with data 4
+new_node2 = Node(5) # Create a new node with data 5
 curr = head # Start traversing the linked list from the head
 while curr.next != None: # Traverse until the last node is reached
     curr = curr.next
-    curr.next = new_node2 # Point the last node's next to the new node, effectively inserting it at the end of the linked list
-
+curr.next = new_node2 # Point the last node's next to the new node, effectively inserting it at the end of the linked list
 traverse(head) # Call the traverse function to print the linked list after inserting the new node at the end
+print() # Print a newline after traversing the linked list
+
+
+# inserting a new node at the kth position in the linked list
+k = 4
+new_node3 = Node(4) # Create a new node with data 4
+
+curr = head # Start traversing the linked list from the head
+for i in range(k-1): # Traverse the linked list until the (k-1)th node is reached
+    curr = curr.next
+new_node3.next = curr.next # Point the new node's next to the current node's next, effectively inserting it after the current node
+curr.next = new_node3 # Point the current node's next to the new node, completing the insertion of the new node at the kth position
+traverse(head) # Call the traverse function to print the linked list after inserting the new node at the kth position
+print() # Print a newline after traversing the linked list
+
+
+# deleting the first node of the linked list
+head = head.next # Update the head of the linked list to the next node, effectively removing the first node from the linked list
+traverse(head) # Call the traverse function to print the linked list after removing the first node
+print() # Print a newline after traversing the linked list
+
+
+# deleting the last node of the linked list
+while curr.next.next != None: # Traverse the linked list until the second last node is reached
+    curr = curr.next
+curr.next = None # Set the next pointer of the second last node to None, effectively removing the last node from the linked list
+traverse(head) # Call the traverse function to print the linked list after removing the last node
+print() # Print a newline after traversing the linked list
+
+
+# deleting the kth node of the linked list
+k = 2
+curr = head # Start traversing the linked list from the head
+for i in range(k-1): # Traverse the linked list until the (k-1)th node is reached
+    curr = curr.next
+curr.next = curr.next.next # Point the current node's next to the node after the next node, effectively removing the kth node from the linked list
+traverse(head) # Call the traverse function to print the linked list after removing the kth node
 print() # Print a newline after traversing the linked list
