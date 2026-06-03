@@ -78,7 +78,6 @@ def traverse_circular(head): # Function to traverse the circular linked list sta
 traverse_circular(head) # Call the traverse_circular function to print the circular linked list
 print() # Print a newline after traversing the circular linked list
 
-
 # Traversing the circular linked list in reverse direction
 def traverse_circular_reverse(head): # Function to traverse the circular linked list in reverse direction starting from the head
     curr = head # Start traversing the circular linked list from the head

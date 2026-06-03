@@ -11,6 +11,7 @@ b = Node(2)
 c = Node(3)
 a.next = b # Link node a to node b
 b.next = c
+
 head = a # The head of the linked list is now node a, which points to node b, which points to node c
 
 
